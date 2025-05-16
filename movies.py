@@ -1,16 +1,48 @@
-# This is a sample Python script.
+class Movie:
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self, title, year, director):
+        self.title = title
+        self.year = year
+        self.director = director
+
+class User:
+
+    def __init__(self, name):
+        self.name = name
+
+class GuessGame:
+
+    def __init__(self, movies):
+        self.users = []
+        self.movies = movies
+
+    def add_user(self, user):
+        self.users.append(user)
+
+    def start_guessing(self):
+        guesses = {}
+        for user in self.users:
+            guess = input("What year was '{}' released, {}?\n\n".format(movie1.title, user.name))
+            guesses[user.name] = int(guess)
+
+        for name, guess in guesses.items():
+            if guess == movie1.year:
+                print("You guessed the year of the movie {}.".format(name))
+            else:
+                print("Sorry, you were wrong {}.".format(name))
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+movie1 = Movie("The Godfather", 1972, "Coppola")
+#movie2 = Movies("Paths of Glory", 1957, "Kubrick")
+
+user1 = User("Daniel")
+user2 = User("Mila")
+
+game = GuessGame([movie1])
+game.add_user(user1)
+game.add_user(user2)
+game.start_guessing()
